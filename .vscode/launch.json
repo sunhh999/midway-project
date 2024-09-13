@@ -1,0 +1,34 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Midway Local",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "runtimeExecutable": "npm",
+      "windows": {
+        "runtimeExecutable": "npm.cmd"
+      },
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
+      "env": {
+        "NODE_ENV": "local"
+      },
+      "console": "integratedTerminal",
+      "restart": true,
+      "autoAttachChildProcesses": true,
+      "sourceMaps": true, // 确保启用 source maps
+      "outFiles": [
+        "${workspaceRoot}/dist/**/*.js"
+      ], // 指向编译后的 JavaScript 文件
+      "skipFiles": [
+        "${workspaceRoot}/dist/**/*", // 忽略 dist 目录
+        "<node_internals>/**",
+        "${workspaceRoot}/node_modules/**/*"
+      ]
+    }
+  ]
+}

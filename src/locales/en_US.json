@@ -1,0 +1,5 @@
+{
+  "hello": "hello",
+  "error": "error",
+  "error.user.name.required": "name is required"
+}
