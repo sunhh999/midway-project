@@ -1,6 +1,6 @@
-import { Rule, RuleType } from '@midwayjs/validate';
-import { ApiProperty } from '@midwayjs/swagger';
-import { R } from '../common/base.error.util';
+// import { Rule, RuleType } from '@midwayjs/validate';
+// import { ApiProperty } from '@midwayjs/swagger';
+// import { R } from '../common/base.error.util';
 
 // export class UserDTO {
 //   // id不能为空，并且是数字
@@ -12,24 +12,24 @@ import { R } from '../common/base.error.util';
 //   age: number;
 // }
 
-export class UserDTO {
-  @ApiProperty({
-    description: 'id',
-  })
-  @Rule(RuleType.allow(null))
-  id?: number;
+// export class UserDTO {
+//   @ApiProperty({
+//     description: 'id',
+//   })
+//   @Rule(RuleType.allow(null))
+//   id?: number;
 
-  @ApiProperty({
-    description: '姓名',
-  })
+//   @ApiProperty({
+//     description: '姓名',
+//   })
 
-  //  这个错误消息正常需要做多语言的
-  @Rule(RuleType.string().required().error(R.validateError('姓名不能为空')))
-  name: string;
+//   //  这个错误消息正常需要做多语言的
+//   @Rule(RuleType.string().required().error(R.validateError('姓名不能为空')))
+//   name: string;
 
-  @ApiProperty({
-    description: '年龄',
-  })
-  @Rule(RuleType.string().required().error(R.validateError('年龄不能为空')))
-  age: number;
-}
+//   @ApiProperty({
+//     description: '年龄',
+//   })
+//   @Rule(RuleType.string().required().error(R.validateError('年龄不能为空')))
+//   age: number;
+// }
