@@ -13,7 +13,7 @@ export class BaseEntity extends TEntity {
     name: 'create_time',
     comment: '创建日期',
   })
-  createTime: Date;
+  create_time: Date;
 
   @UpdateDateColumn({
     name: 'update_time',

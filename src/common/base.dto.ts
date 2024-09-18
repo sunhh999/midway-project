@@ -7,7 +7,8 @@ import { BaseEntity } from './base.entity';
 export class BaseDTO<T extends BaseEntity> {
   @ApiProperty()
   @Rule(RuleType.allow(null))
-  id: string;
+  id?: string;
+
   toEntity(): T {
     return omit(this, ['createDate', 'updateDate']) as unknown as T;
   }
