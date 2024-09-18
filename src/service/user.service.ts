@@ -4,11 +4,11 @@
 // import { User } from '../entity/user';
 // import { InjectEntityModel } from '@midwayjs/typeorm';
 
-import { Provide } from '@midwayjs/core';
-import { BaseService } from '../common/base.service';
-import { User } from '../entity/user';
-import { InjectEntityModel } from '@midwayjs/typeorm';
-import { Repository } from 'typeorm';
+// import { Provide } from '@midwayjs/core';
+// import { BaseService } from '../common/base.service';
+// import { User } from '../entity/user';
+// import { InjectEntityModel } from '@midwayjs/typeorm';
+// import { Repository } from 'typeorm';
 
 // @Provide()
 // export class UserService {
@@ -84,12 +84,12 @@ import { Repository } from 'typeorm';
 // }
 // }
 
-@Provide()
-export class UserService extends BaseService<User> {
-  @InjectEntityModel(User)
-  userModel: Repository<User>;
+// @Provide()
+// export class UserService extends BaseService<User> {
+//   @InjectEntityModel(User)
+//   userModel: Repository<User>;
 
-  getModel(): Repository<User> {
-    return this.userModel;
-  }
-}
+//   getModel(): Repository<User> {
+//     return this.userModel;
+//   }
+// }
