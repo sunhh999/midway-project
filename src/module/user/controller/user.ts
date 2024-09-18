@@ -14,41 +14,42 @@ import {
 import { UserDTO } from '../dto/user';
 import { UserService } from '../service/user';
 
+// 接口内容
+
 @Provide()
-@Controller('/user')
+@Controller('/user', { tagName: '用户管理' })
 export class UserController {
   @Inject()
   userService: UserService;
 
-  @Post('/', { description: '新建' })
+  @Post('/create', { summary: '创建用户' })
   async create(@Body(ALL) data: UserDTO) {
     return await this.userService.create(data.toEntity());
   }
 
-  @Put('/', { description: '编辑' })
+  @Put('/edit', { summary: '编辑' })
   async edit(@Body(ALL) data: UserDTO) {
     const user = await this.userService.getById(data.id);
-    // update
     return await this.userService.edit(user);
   }
 
-  @Del('/:id', { description: '删除' })
+  @Del('/:id', { summary: '删除' })
   async remove(@Param('id') id: string) {
     const user = await this.userService.getById(id);
     await this.userService.remove(user);
   }
 
-  @Get('/:id', { description: '根据id查询' })
+  @Get('/:id', { summary: '根据id查询' })
   async getById(@Param('id') id: string) {
     return await this.userService.getById(id);
   }
 
-  @Get('/page', { description: '分页查询' })
-  async page(@Query('page') page: number, @Query('size') size: number) {
-    return await this.userService.page(page, size);
+  @Get('/page', { summary: '分页查询' })
+  async page(@Query('page') page: number, @Query('pageSize') pageSize: number) {
+    return await this.userService.page(page, pageSize);
   }
 
-  @Get('/list', { description: '查询全部' })
+  @Get('/list', { summary: '查询全部' })
   async list() {
     return await this.userService.list();
   }
