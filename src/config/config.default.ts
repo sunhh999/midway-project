@@ -4,6 +4,8 @@ export default {
   // use for cookie sign key, should change to your own and keep security
   keys: '1724813844573_2370',
   koa: {
+    // 路由前缀
+    globalPrefix: '/midway',
     port: 7001,
   },
   typeorm: {
@@ -17,7 +19,7 @@ export default {
         port: 3306,
         username: 'root',
         password: 'admin123',
-        database: 'midwayjs-mysql', // 数据库名称
+        database: 'midway_mysql', // 数据库名称
         synchronize: true, // 如果第一次使用，不存在表，有同步的需求可以写 true，注意会丢数据
         logging: true,
         // 扫描entity文件夹
@@ -29,7 +31,7 @@ export default {
     client: {
       port: 6379,
       host: 'localhost',
-      password: '123456',
+      password: 'admin123',
       db: 0,
     },
   },
