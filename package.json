@@ -15,6 +15,7 @@
     "@midwayjs/swagger": "3",
     "@midwayjs/typeorm": "^3.0.0",
     "@midwayjs/validate": "^3.16.8",
+    "bcryptjs": "^2.4.3",
     "lodash": "^4.17.21",
     "mysql2": "^3.11.0",
     "typeorm": "^0.3.20"
