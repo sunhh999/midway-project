@@ -12,7 +12,7 @@ import {
   Del,
 } from '@midwayjs/core';
 // import { AuthDTO } from '../dto/auth';
-// import { AuthService } from '../service/auth';
+import { AuthService } from '../service/auth';
 
 @Provide()
 @Controller('/auth', { tagName: '' })
@@ -52,4 +52,7 @@ export class AuthController {
   async list() {
     return await this.authService.list();
   }
+
+  @Get('/current/user')
+  @NotAuth()
 }
