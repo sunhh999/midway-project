@@ -1,14 +1,15 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
-import { resolve, dirname } from 'path';
-import { fileURLToPath } from 'url';
+const fs = require('fs');
+const path = require('path');
+
+// import { fileURLToPath } from 'url';
 
 if (process.argv.length > 3) {
   console.log('只能有一个参数');
   process.exit();
 }
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
 
 function firstCharToUpperCase(str) {
   return str[0].toUpperCase() + str.substring(1);
@@ -16,36 +17,36 @@ function firstCharToUpperCase(str) {
 
 const moduleName = process.argv.pop();
 
-if (!existsSync(resolve(__dirname, '../src/module'))) {
-  mkdirSync(resolve(__dirname, '../src/module'));
+if (!fs.existsSync(path.resolve(__dirname, '../src/module'))) {
+  fs.mkdirSync(path.resolve(__dirname, '../src/module'));
 }
 
-mkdirSync(resolve(__dirname, `../src/module/${moduleName}`));
-mkdirSync(resolve(__dirname, `../src/module/${moduleName}/controller`));
-mkdirSync(resolve(__dirname, `../src/module/${moduleName}/service`));
-mkdirSync(resolve(__dirname, `../src/module/${moduleName}/entity`));
-mkdirSync(resolve(__dirname, `../src/module/${moduleName}/dto`));
-mkdirSync(resolve(__dirname, `../src/module/${moduleName}/vo`));
+fs.mkdirSync(path.resolve(__dirname, `../src/module/${moduleName}`));
+fs.mkdirSync(path.resolve(__dirname, `../src/module/${moduleName}/controller`));
+fs.mkdirSync(path.resolve(__dirname, `../src/module/${moduleName}/service`));
+fs.mkdirSync(path.resolve(__dirname, `../src/module/${moduleName}/entity`));
+fs.mkdirSync(path.resolve(__dirname, `../src/module/${moduleName}/dto`));
+fs.mkdirSync(path.resolve(__dirname, `../src/module/${moduleName}/vo`));
 
-let controllerContent = readFileSync(
-  resolve(__dirname, './template/controller.template')
-).toString();
+let controllerContent = fs
+  .readFileSync(path.resolve(__dirname, './template/controller.template'))
+  .toString();
 
-let serviceContent = readFileSync(
-  resolve(__dirname, './template/service.template')
-).toString();
+let serviceContent = fs
+  .readFileSync(path.resolve(__dirname, './template/service.template'))
+  .toString();
 
-let entityContent = readFileSync(
-  resolve(__dirname, './template/entity.template')
-).toString();
+let entityContent = fs
+  .readFileSync(path.resolve(__dirname, './template/entity.template'))
+  .toString();
 
-let dtoContent = readFileSync(
-  resolve(__dirname, './template/dto.template')
-).toString();
+let dtoContent = fs
+  .readFileSync(path.resolve(__dirname, './template/dto.template'))
+  .toString();
 
-let voContent = readFileSync(
-  resolve(__dirname, './template/vo.template')
-).toString();
+let voContent = fs
+  .readFileSync(path.resolve(__dirname, './template/vo.template'))
+  .toString();
 
 let name;
 const filename = moduleName;
@@ -99,27 +100,36 @@ voContent = voContent
   .replace(/\$2/g, filename)
   .replace(/\$3/g, varName);
 
-writeFileSync(
-  resolve(__dirname, `../src/module/${moduleName}/controller/${moduleName}.ts`),
+fs.writeFileSync(
+  path.resolve(
+    __dirname,
+    `../src/module/${moduleName}/controller/${moduleName}.ts`
+  ),
   controllerContent
 );
 
-writeFileSync(
-  resolve(__dirname, `../src/module/${moduleName}/service/${moduleName}.ts`),
+fs.writeFileSync(
+  path.resolve(
+    __dirname,
+    `../src/module/${moduleName}/service/${moduleName}.ts`
+  ),
   serviceContent
 );
 
-writeFileSync(
-  resolve(__dirname, `../src/module/${moduleName}/entity/${moduleName}.ts`),
+fs.writeFileSync(
+  path.resolve(
+    __dirname,
+    `../src/module/${moduleName}/entity/${moduleName}.ts`
+  ),
   entityContent
 );
 
-writeFileSync(
-  resolve(__dirname, `../src/module/${moduleName}/dto/${moduleName}.ts`),
+fs.writeFileSync(
+  path.resolve(__dirname, `../src/module/${moduleName}/dto/${moduleName}.ts`),
   dtoContent
 );
 
-writeFileSync(
-  resolve(__dirname, `../src/module/${moduleName}/vo/${moduleName}.ts`),
+fs.writeFileSync(
+  path.resolve(__dirname, `../src/module/${moduleName}/vo/${moduleName}.ts`),
   voContent
 );

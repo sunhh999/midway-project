@@ -1,5 +1,6 @@
 import { MidwayConfig } from '@midwayjs/core';
-
+import * as redisStore from 'cache-manager-ioredis';
+import { env } from 'process';
 export default {
   // use for cookie sign key, should change to your own and keep security
   keys: '1724813844573_2370',
@@ -39,6 +40,18 @@ export default {
     localeTable: {
       en_US: require('../locales/en_US.json'),
       zh_CN: require('../locales/zh_CN.json'),
+    },
+  },
+
+  cache: {
+    store: redisStore,
+    options: {
+      host: env.REDIS_HOST || 'localhost', // default value
+      port: 6379, // default value
+      password: env.REDIS_PASSWORD || '',
+      db: 0,
+      keyPrefix: 'cache:',
+      ttl: 100,
     },
   },
 } as MidwayConfig;

@@ -6,6 +6,7 @@
   "type": "commonjs",
   "dependencies": {
     "@midwayjs/bootstrap": "^3.12.0",
+    "@midwayjs/cache": "^3.14.0",
     "@midwayjs/core": "^3.12.0",
     "@midwayjs/i18n": "3",
     "@midwayjs/info": "^3.12.0",
@@ -16,9 +17,16 @@
     "@midwayjs/typeorm": "^3.0.0",
     "@midwayjs/validate": "^3.16.8",
     "bcryptjs": "^2.4.3",
+    "cache-manager-ioredis": "^2.1.0",
+    "casbin-redis-adapter": "^1.0.4",
+    "ip2region": "^2.3.0",
     "lodash": "^4.17.21",
+    "mini-svg-data-uri": "^1.4.4",
     "mysql2": "^3.11.0",
-    "typeorm": "^0.3.20"
+    "nanoid": "^5.0.7",
+    "svg-captcha": "^1.4.0",
+    "typeorm": "^0.3.20",
+    "useragent": "^2.3.0"
   },
   "devDependencies": {
     "@midwayjs/mock": "^3.12.0",
